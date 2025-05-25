@@ -77,6 +77,25 @@ You can get hac from crates.io with:
 cargo install hac-client
 ```
 
+### Installing with nix ❄️
+
+You can get hac using Nix flakes.
+
+First, add the flake as an input:
+
+```nix
+inputs.hac.url = "github:wllfaria/hac";
+```
+
+Then, install the package by including it in your system configuration:
+
+```nix
+{ pkgs, inputs, ... }:
+{
+  environment.systemPackages = [ inputs.hac.packages.${pkgs.system}.default ];
+}
+```
+
 ### Building from source
 
 Clone the repository into your machine, and you'll be able to run, or build by 
